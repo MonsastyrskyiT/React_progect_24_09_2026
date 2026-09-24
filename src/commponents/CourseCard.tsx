@@ -1,7 +1,9 @@
+import clsx from "clsx";
 interface CourseCardProps {
     title: string;
     teacher: string;
     credits?: number;
+    isActive: boolean;
 }
 
 export default function CourseCard({
@@ -11,19 +13,23 @@ export default function CourseCard({
     isActive,
 } : CourseCardProps) {
     return (
-        <div style={{
-              border: '1px solid #ccc',
-              margin: '10px',
-              padding: '10px',
-              borderRadius: '9px',
-             }}>
-            <h2>{title}</h2>
-            <p>Teacher: {teacher}</p>
-            <p>Credits: {credits}</p>
+        <div className={clsx("p-5 m2 rounded shadow-sm transition-all hover:shadow-md",
+         isActive ? "border-green-500 bg-green-50" : "border-gray-300 bg-white",
+         )}>
+            <h2 className="text-xl font-bold mb-2">{title}</h2>
+            <p className="text-gray-600">Teacher: {teacher}</p>
+            <p className="text-gray-600">Credits: {credits}</p>
 
-            <div style={{ color: isActive ? 'green' : 'red' }}>
-
-            </div>
+            <div
+                className={clsx(
+                "mt-4 font-semibold text-sm px-3 py-1 inline-block rounded-full",
+                isActive
+                ? "bg-green-200 text-green-800"
+                : "bg-gray-200 text-gray-700",
+                )}
+>
+  {isActive ? "В процесі вивчення..." : "Курс завершено"}
+</div>
         </div>
-    )
+    );
 }
