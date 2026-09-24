@@ -5,7 +5,10 @@ interface CourseCardProps {
 }
 
 export default function CourseCard({
-    title, teacher, credits = 0
+    title,
+    teacher,
+    credits = 0,
+    isActive,
 } : CourseCardProps) {
     return (
         <div style={{
@@ -17,6 +20,10 @@ export default function CourseCard({
             <h2>{title}</h2>
             <p>Teacher: {teacher}</p>
             <p>Credits: {credits}</p>
+
+            <div style={{ color: isActive ? 'green' : 'red' }}>
+
+            </div>
         </div>
     )
 }

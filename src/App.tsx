@@ -7,7 +7,18 @@ function App() {
     <div >
       <Header studentName=" Tymofii" />
     
-      <CourseCard title="Mathematics" teacher="Dr. Smith" credits={3} />
+      <CourseCard 
+      title="Mathematics"
+      teacher="Dr. Smith"
+      credits={3} 
+      isActive={true}
+        />
+        <CourseCard 
+      title="html/css"
+      teacher="Volodimer"
+      credits={3} 
+      isActive={false}
+        />
     </div>
   );
 }
